@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LogInActivity"
+    android:background="#fb2b2b">
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:textStyle="bold|italic"
+        android:textSize="30dp"
+        android:textColor="#fff"
+        android:id="@+id/labelAgenzia"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Agenzia"/>
+    <RelativeLayout
+        android:id="@+id/listaAgenzie"
+        android:textAlignment="center"
+        android:background="@drawable/corner_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/labelAgenzia">
+
+        <Spinner
+
+            android:layout_centerHorizontal="true"
+            android:textAlignment="inherit"
+            android:dropDownSelector="#aef7fd"
+            android:id="@+id/spinnerAgenzie"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            />
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/labelPassword"
+        android:textStyle="bold|italic"
+        android:textSize="30dp"
+        android:textColor="#fff"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/listaAgenzie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password"/>
+
+    <EditText
+        android:padding="8dp"
+        android:id="@+id/password"
+        android:inputType="textPassword"
+        android:textSize="20dp"
+        android:background="@drawable/corner_layout"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+       android:layout_below="@id/labelPassword"
+       />
+
+    <CheckBox
+        android:layout_marginTop="5dp"
+        android:layout_centerHorizontal="true"
+        android:text="Ricorda"
+        android:textSize="20dp"
+        android:textStyle="bold|italic"
+        android:textColorHint="#fff"
+        android:layout_below="@+id/password"
+        android:id="@+id/ricorda"
+        android:textColor="#fff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+    <Button
+        android:padding="5dp"
+        android:id="@+id/accesso"
+        android:background="@drawable/corner_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ACCEDI"
+        android:layout_below="@+id/ricorda"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"/>
+
+
+
+</RelativeLayout>

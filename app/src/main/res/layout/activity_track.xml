@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TrackActivity"
+    android:background="#CFDCFC">
+    <Button
+        android:visibility="gone"
+        android:textColor="#fff"
+        android:layout_margin="40dp"
+        android:layout_alignParentRight="true"
+        android:id="@+id/btnStop"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:text="STOP"
+        android:textStyle="bold|italic"
+        android:textSize="30dp"
+        android:background="@drawable/stop_track_button"
+        />
+    <Button
+        android:text="START"
+        android:textStyle="bold|italic"
+        android:textSize="30dp"
+        android:textColor="#136F17"
+        android:background="@drawable/start_track_button"
+        android:id="@+id/btnSart"
+        android:layout_margin="10dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"/>
+    <RelativeLayout
+        android:id="@+id/mapLayout"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <fragment
+            android:id="@+id/mapFragment"
+            class="com.google.android.gms.maps.MapFragment"
+            android:layout_width="250dp"
+            android:layout_height="250dp"/>
+
+    </RelativeLayout>
+</RelativeLayout>

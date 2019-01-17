@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "506194814918",
+    "firebase_url": "https://trackbus-bd0ec.firebaseio.com",
+    "project_id": "trackbus-bd0ec",
+    "storage_bucket": "trackbus-bd0ec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:506194814918:android:6214a5ef59c17884",
+        "android_client_info": {
+          "package_name": "com.example.gianpaolorusso.trackbus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "506194814918-q41o9j6c77dfqu56rk3t48q9oebhv386.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.gianpaolorusso.trackbus",
+            "certificate_hash": "84542220129dacf5ac193d7f75ddcfbd35ba1b4c"
+          }
+        },
+        {
+          "client_id": "506194814918-b2ih5l2fb8t1fefg7c7chcu3vsg2afeh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcqGCL5aDw6UKfUfUYN-Gw_WfP3e-k3yA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "506194814918-b2ih5l2fb8t1fefg7c7chcu3vsg2afeh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:506194814918:android:f15a1ad857c33eb1",
+        "android_client_info": {
+          "package_name": "com.example.gianpaolorusso.trackbus.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "506194814918-dohk7ge5046gh8l310djma6hi8gu20vl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.gianpaolorusso.trackbus.app",
+            "certificate_hash": "84542220129dacf5ac193d7f75ddcfbd35ba1b4c"
+          }
+        },
+        {
+          "client_id": "506194814918-b2ih5l2fb8t1fefg7c7chcu3vsg2afeh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcqGCL5aDw6UKfUfUYN-Gw_WfP3e-k3yA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "506194814918-b2ih5l2fb8t1fefg7c7chcu3vsg2afeh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

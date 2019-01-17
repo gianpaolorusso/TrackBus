@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MenagementActivity"
+    android:background="#CFDCFC">
+
+    <TextView
+        android:textStyle="bold|italic"
+        android:id="@+id/labelSpinner"
+        android:textSize="25dp"
+        android:textColor="#fff"
+        android:layout_margin="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BUS"/>
+    <RelativeLayout
+        android:id="@+id/layoutLog"
+        android:layout_below="@id/labelSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
+
+    <RelativeLayout
+        android:id="@+id/spinnerlayout"
+        android:layout_margin="20dp"
+        android:background="@drawable/corner_layout"
+        android:layout_centerHorizontal="true"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Spinner
+            android:dropDownSelector="#aef7fd"
+            android:id="@+id/listaBus"
+            android:layout_width="200dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+    <Button
+        android:layout_below="@+id/spinnerlayout"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/corner_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LOGGA BUS"
+        android:id="@+id/btnLog"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="60dp"
+        android:id="@+id/commandLayout"
+        android:padding="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/layoutLog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#CFDCFC"
+        android:background="@drawable/corner_layout"
+        >
+        <Button
+            android:textStyle="bold|italic"
+            android:textSize="30dp"
+            android:text="TRACK"
+            android:background="@drawable/btntrack_corner"
+            android:id="@+id/track"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_margin="10dp" />
+        <Button
+            android:text="SOS"
+            android:textStyle="bold|italic"
+            android:textSize="30dp"
+            android:textColor="#FD2413"
+            android:background="@drawable/btntrack_corner"
+            android:id="@+id/SOS"
+            android:layout_margin="10dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_toRightOf="@id/track"
+            />
+        <Button
+            android:textStyle="bold|italic"
+            android:text="NOTE"
+            android:textSize="30dp"
+            android:background="@drawable/btntrack_corner"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/track"
+            android:id="@+id/Comunicazioni"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_margin="10dp" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
