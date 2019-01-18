@@ -18,6 +18,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <service android:name=".TrackService"/>
+
         <activity android:name=".NoteActivity"></activity>
         <activity android:name=".TrackActivity" />
         <activity android:name=".SOS_Activity" />

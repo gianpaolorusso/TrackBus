@@ -9,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Layout;
@@ -22,6 +23,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -38,6 +40,7 @@ import org.json.JSONObject;
 
 import java.security.PrivilegedAction;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 
 public class MenagementActivity extends AppCompatActivity {
@@ -120,10 +123,12 @@ public class MenagementActivity extends AppCompatActivity {
                 }
             }
         });
+
         spinnerBus.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                numberBus=spinnerBus.getSelectedItem().toString();
+                numberBus=spinnerBus.getItemAtPosition(position).toString();
+                labelSpinner.setText("BUS "+numberBus);
             }
 
             @Override
@@ -136,16 +141,11 @@ public class MenagementActivity extends AppCompatActivity {
         btnTrack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String title=MenagementActivity.this.getTitle().toString();
                 Intent i = new Intent(MenagementActivity.this,TrackActivity.class);
-                i.putExtra("bus",spinnerBus.getSelectedItem().toString());
+                i.putExtra("bus",numberBus);
                 i.putExtra("agenzia",agenzia);
-                PendingIntent pendingIntent = PendingIntent.getActivity(getBaseContext(),1,i,PendingIntent.FLAG_UPDATE_CURRENT);
-                try {
-                    pendingIntent.send();
-                } catch (PendingIntent.CanceledException e) {
-                    e.printStackTrace();
-                }
-
+                startActivityForResult(i,1);
             }
         });
 
@@ -153,12 +153,8 @@ public class MenagementActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MenagementActivity.this,SOS_Activity.class);
-                PendingIntent pendingIntent = PendingIntent.getActivity(getBaseContext(),1,i,PendingIntent.FLAG_UPDATE_CURRENT);
-                try {
-                    pendingIntent.send();
-                } catch (PendingIntent.CanceledException e) {
-                    e.printStackTrace();
-                }
+                startActivityForResult(i,1);
+
 
             }
         });
@@ -167,13 +163,9 @@ public class MenagementActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MenagementActivity.this,NoteActivity.class);
+                i.putExtra("agenzia",agenzia);
                 i.putExtra("bus",spinnerBus.getSelectedItem().toString());
-                PendingIntent pendingIntent = PendingIntent.getActivity(getBaseContext(),1,i,PendingIntent.FLAG_UPDATE_CURRENT);
-                try {
-                    pendingIntent.send();
-                } catch (PendingIntent.CanceledException e) {
-                    e.printStackTrace();
-                }
+                startActivityForResult(i,1);
             }
         });
 
@@ -290,8 +282,7 @@ public class MenagementActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        logOutBus();
+        Toast.makeText(this,"Fai logout per uscire",Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -301,15 +292,37 @@ public class MenagementActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void finalize() throws Throwable {
-        super.finalize();
-        logOutBus();
-    }
-
-    @Override
     protected void onStop() {
         super.onStop();
         populateBus();
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if(resultCode==1 && requestCode==1) {
+            agenzia=data.getStringExtra("agenzia");
+            numberBus=data.getStringExtra("bus");
+            layoutLog.setVisibility(View.GONE);
+            commandLayout.setVisibility(View.VISIBLE);
+            labelSpinner.setText("BUS " + numberBus);
+            menuItem.setVisible(true);
+            String url= "https://trackbus-bd0ec.firebaseio.com/Agenzie/"+agenzia+"/BUS"+numberBus+"/";
+            DatabaseReference ref=database.getReferenceFromUrl(url);
+            ref.child("LOG").setValue("SI");
+        }
+    }
+    private String getNumberToTitle(String title)
+    {
+        String number="";
+        for(int index=title.length(); index==0; index--)
+        {
+            if(title.indexOf(index)=='S'|| title.indexOf(index)==' ' )
+            {
+                break;
+            }
+            number=number+title.indexOf(index);
+        }
+        return number;
     }
 }
